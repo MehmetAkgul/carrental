@@ -1,6 +1,6 @@
 server:
   error:
-    include-binding-errors: always   #a�?klama
+    include-binding-errors: always   #açıklama
     include-stacktrace: never
     include-message: always
   port: 8080
@@ -19,6 +19,11 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQLMyISAMDialect
+        dialect: org.hibernate.dialect.MySQL5Dialect
         format_sql: true
     show-sql: true
+
+backendapi:
+  app:
+    jwtSecret: carRentalSecretKey
+    jwtExpirationMs: 3600000  # 1 saat
