@@ -1,3 +1,4 @@
+
 package com.lecture.carrental.security.jwt;
 
 import com.lecture.carrental.security.service.UserDetailsImpl;
@@ -16,10 +17,10 @@ public class JwtUtils {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtUtils.class);
 
-    @Value("${backend.app.jwtSecret}")
+    @Value("${backendapi.app.jwtSecret}")
     private String jwtSecret;
 
-    @Value("${backend.app.jwtExpirationMs}")
+    @Value("${backendapi.app.jwtExpirationMs}")
     private String jwtExpirationMs;
 
 

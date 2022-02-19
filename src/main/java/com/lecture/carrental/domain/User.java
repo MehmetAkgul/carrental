@@ -49,7 +49,7 @@ public class User {
     @Column(nullable = false, length = 14)
     private String phoneNumber;
 
-    @Email()
+    @Email(message = "Please enter valid email")
     @Size(min = 5, max = 150)
     @NotNull(message = "Plase enter your mail")
     @Column(nullable = false, length = 14, unique = true)
@@ -66,7 +66,7 @@ public class User {
     private String zipCode;
 
     @Column(nullable = false)
-    private Boolean builtIn;
+    private Boolean builtIn= false;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",

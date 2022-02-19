@@ -1,6 +1,7 @@
 package com.lecture.carrental.repository;
 
 import com.lecture.carrental.domain.User;
+import com.lecture.carrental.exception.ResourcesNotFoundException;
 import org.springframework.data.jpa.repository.JpaRepository;
 //import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -14,6 +15,8 @@ import java.util.Optional;
 public interface UserRepository extends JpaRepository<User, Long> {
 
 
-   // @Query("SELECT u from User u where u.email=?1")  // bu otomatik oluşuyor  o yüzden yorum
+    // @Query("SELECT u from User u where u.email=?1")  // bu otomatik oluşuyor  o yüzden yorum
     Optional<User> findByEmail(String email);
+
+    Boolean existsByEmail(String email) throws ResourcesNotFoundException;
 }
