@@ -52,7 +52,7 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    @PreAuthorize("hasRole('CUSTOMER') or hasRole('ADMIN')")
+    // @PreAuthorize("hasRole('CUSTOMER') or hasRole('ADMIN')")
     public ResponseEntity<UserDTO> getUserById(HttpServletRequest request){
         Long id = (Long) request.getAttribute("id");
         UserDTO user = userService.findById(id);
@@ -91,8 +91,7 @@ public class UserController {
 
     @PutMapping("/user")
     @PreAuthorize("hasRole('CUSTOMER') or hasRole('ADMIN')")
-    public ResponseEntity<Map<String, Boolean>> updateUser(HttpServletRequest request,
-                                                           @Valid @RequestBody UserDTO userDTO) {
+    public ResponseEntity<Map<String, Boolean>> updateUser(HttpServletRequest request, @Valid @RequestBody UserDTO userDTO) {
 
         Long id = (Long) request.getAttribute("id");
         userService.updateUser(id, userDTO);
